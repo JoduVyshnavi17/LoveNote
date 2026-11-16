@@ -1,0 +1,20 @@
+LoveNotes - Windows setup
+=========================
+
+1. Extract this folder to a location such as Desktop\LoveNotes_Combined.
+2. Keep your existing backend\.env file OUTSIDE this package; copy it into backend\.env only if you are setting up a fresh folder, and never overwrite existing secret values. This package intentionally contains only backend\.env.example.
+3. Backend: open CMD in backend, create/activate a Python 3.11 virtual environment, install requirements, then run Uvicorn:
+   py -3.11 -m venv .venv
+   .venv\Scripts\activate
+   python -m pip install -r requirements.txt
+   python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+4. Frontend: open a second CMD in frontend, then run:
+   npm install
+   npm run dev
+5. Open the Vite URL printed in the terminal (usually http://localhost:5173).
+
+Important:
+- The corrected frontend App.jsx has been transpilation-checked for JSX/JavaScript syntax. Runtime and API compatibility still need to be tested on your machine.
+- node_modules and the Python virtual environment are not included; install dependencies with the commands above.
+- No real .env secrets, MySQL database, or personal uploaded documents are included.
+- Do not drop/recreate your existing MySQL database. Keep your existing database and credentials.
